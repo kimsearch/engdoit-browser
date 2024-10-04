@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 영단어 학습 앱 (English Word Learning App)
 
-## Getting Started
+## 프로젝트 소개 (Project Introduction)
 
-First, run the development server:
+이 프로젝트는 사용자가 영어 단어를 학습할 수 있는 인터랙티브한 웹 애플리케이션입니다. 다양한 난이도의 단어를 제공하며, 사용자는 자신의 수준에 맞는 학습을 진행할 수 있습니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project is an interactive web application that allows users to learn English words. It provides words of various difficulty levels, allowing users to study according to their proficiency.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 주요 기능 (Key Features)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. 5개의 난이도 레벨 (5 difficulty levels)
+2. 각 난이도별 5개의 단어 제공 (5 words for each difficulty level)
+3. 타이머 기능 (Timer function)
+4. 즉각적인 정답 피드백 (Immediate answer feedback)
+5. 학습 결과 제공 (Learning results provided)
+6. 북마크 기능 (Bookmark feature)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 기술 스택 (Tech Stack)
 
-## Learn More
+- React
+- Next.js
+- TypeScript
+- Tailwind CSS
 
-To learn more about Next.js, take a look at the following resources:
+## 설치 방법 (Installation)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. 저장소를 클론합니다:
+   Clone the repository:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```
+   git clone https://github.com/your-username/english-word-learning-app.git
+   ```
 
-## Deploy on Vercel
+2. 프로젝트 디렉토리로 이동합니다:
+   Navigate to the project directory:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```
+   cd english-word-learning-app
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. 필요한 패키지를 설치합니다:
+   Install the necessary packages:
+
+   ```
+   npm install
+   ```
+
+4. 개발 서버를 실행합니다:
+   Run the development server:
+
+   ```
+   npm run dev
+   ```
+
+5. 브라우저에서 `http://localhost:3000`을 열어 앱을 확인합니다.
+   Open `http://localhost:3000` in your browser to view the app.
+
+## 사용 방법 (How to Use)
+
+1. 홈 화면에서 원하는 난이도를 선택합니다.
+   Select the desired difficulty level from the home screen.
+
+2. 주어진 한국어 단어에 대응하는 영어 단어를 4개의 보기 중에서 선택합니다.
+   Choose the corresponding English word from the four options given for the Korean word.
+
+3. 각 문제는 2초의 제한 시간이 있으며, 시간 내에 답을 선택하지 않으면 자동으로 다음 문제로 넘어갑니다.
+   Each question has a 2-second time limit. If you don't select an answer within the time limit, it automatically moves to the next question.
+
+4. 답을 선택하면 즉시 정답 여부를 확인할 수 있습니다.
+   You can immediately see if your answer is correct or not after selection.
+
+5. 모든 문제를 풀면 최종 결과를 확인할 수 있습니다.
+   After answering all questions, you can check your final results.
+
+6. '다시보기' 버튼을 눌러 같은 난이도의 퀴즈를 다시 풀거나, '홈으로' 버튼을 눌러 메인 화면으로 돌아갈 수 있습니다.
+   You can retake the quiz at the same difficulty level by pressing the 'Review' button, or return to the main screen by pressing the 'Home' button.
+
+## 기여 방법 (Contributing)
+
+프로젝트 개선을 위한 제안이나 버그 리포트는 언제나 환영합니다. 이슈를 생성하거나 풀 리퀘스트를 보내주세요.
+
+Suggestions for improving the project or bug reports are always welcome. Please create an issue or send a pull request.
+
+## 라이선스 (License)
+
+이 프로젝트는 MIT 라이선스 하에 있습니다. 자세한 내용은 `LICENSE` 파일을 참조하세요.
+
+This project is under the MIT License. See the `LICENSE` file for more details.
