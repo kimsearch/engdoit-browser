@@ -75,14 +75,3 @@ This project is an interactive web application that allows users to learn Englis
 6. '다시보기' 버튼을 눌러 같은 난이도의 퀴즈를 다시 풀거나, '홈으로' 버튼을 눌러 메인 화면으로 돌아갈 수 있습니다.
    You can retake the quiz at the same difficulty level by pressing the 'Review' button, or return to the main screen by pressing the 'Home' button.
 
-## 기여 방법 (Contributing)
-
-프로젝트 개선을 위한 제안이나 버그 리포트는 언제나 환영합니다. 이슈를 생성하거나 풀 리퀘스트를 보내주세요.
-
-Suggestions for improving the project or bug reports are always welcome. Please create an issue or send a pull request.
-
-## 라이선스 (License)
-
-이 프로젝트는 MIT 라이선스 하에 있습니다. 자세한 내용은 `LICENSE` 파일을 참조하세요.
-
-This project is under the MIT License. See the `LICENSE` file for more details.
