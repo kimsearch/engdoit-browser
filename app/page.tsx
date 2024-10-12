@@ -11,8 +11,8 @@ export type Screen = "home" | "quiz" | "results";
 export type Difficulty = -1 | 0 | 1 | 2 | 3 | 4 | 5; // 0은 홈화면과 같이 난이도가 필요없는 상태 -1은 북마크 단어!
 
 export default function WordQuiz() {
-  // const [screen, setScreen] = useState<Screen>("home");
-  const [screen, setScreen] = useState<Screen>("results");
+  const [screen, setScreen] = useState<Screen>("home");
+  // const [screen, setScreen] = useState<Screen>("results");
   const [difficulty, setDifficulty] = useState<Difficulty>(0);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(2);
@@ -37,7 +37,7 @@ export default function WordQuiz() {
   }, [timeLeft, selectedAnswer, screen]);
 
   const goToNextWord = () => {
-    if (currentWordIndex + 1 < wordSets[difficulty].length) {
+    if (currentWordIndex + 1 < wordSets[difficulty]?.length) {
       setCurrentWordIndex((prevIndex) => prevIndex + 1);
       setTimeLeft(2);
       setSelectedAnswer(null);

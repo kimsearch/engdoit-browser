@@ -10,7 +10,9 @@ const Header = ({ difficulty }: { difficulty: Difficulty }): ReactElement => {
       {difficulty == 0 ? (
         <p style={{ fontFamily: "BMJUA", fontSize: 29 }}>stage</p>
       ) : (
-        <Star className="w-6 h-6 text-yellow-400 fill-current" />
+        <div style={{ height: 43.5 }} className="flex items-center">
+          <Star className="w-6 h-6 text-yellow-400 fill-current" />
+        </div>
       )}
     </header>
   );
