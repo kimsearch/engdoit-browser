@@ -13,12 +13,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <head lang="en">
+    <html lang="en">
       <Head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#9aa7f9" />
       </Head>
       <body>{children}</body>
-    </head>
+    </html>
   );
 }
