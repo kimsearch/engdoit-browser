@@ -1,11 +1,13 @@
 /** @type {import('next').NextConfig} */
-import withPWA from "next-pwa";
+import withPWA from "@ducanh2912/next-pwa";
 
 const nextConfig = {
-  // reactStrictMode: false,
+  output: "standalone",
 };
 
 export default withPWA({
-  ...nextConfig,
-  dest: "build",
+  dest: "public",
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === "development",
 });
