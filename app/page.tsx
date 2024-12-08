@@ -1,5 +1,6 @@
 "use client";
 
+import PWAInstallPrompt from "./component/feature/PWAInstallPrompt";
 import { useState, useEffect } from "react";
 import wordSets from "./configs/words";
 import Header from "./component/Header";
@@ -88,6 +89,7 @@ export default function WordQuiz() {
         setScreen={setScreen}
         startQuiz={startQuiz}
       />
+      <PWAInstallPrompt />
     </div>
   );
 }

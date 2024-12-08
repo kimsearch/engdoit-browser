@@ -75,14 +75,22 @@ This project is an interactive web application that allows users to learn Englis
 6. '다시보기' 버튼을 눌러 같은 난이도의 퀴즈를 다시 풀거나, '홈으로' 버튼을 눌러 메인 화면으로 돌아갈 수 있습니다.
    You can retake the quiz at the same difficulty level by pressing the 'Review' button, or return to the main screen by pressing the 'Home' button.
 
-
 Git 명령어 정리
 
 코드 업로드
 
 git pull origin main (충돌 시 git stash, git pull origin main, git stash apply)
-git add . 
+git add .
 git commit -m 'commit message'
 git push origin sh
 
 GitHub 에서 sh -> main 으로 merge
+
+## memo
+
+1. 홈-quiz는 만들었던 거에서 타이머 설정하고 정답 랜덤으로 돌려야 돼
+2. 로딩화면, 홈화면 제작해야 되고
+3. quiz는 저번에 만들었던 거에서 타이머 길게 설정, 정답 위치 랜덤하게 바꿔야 되고
+4. game은 안에 어떤 게임이 있는지만 아님 안 해도 돼
+5. word는 피피티에 있는 내용대로 하면 좋고
+6. 북마크는 우리가 생각했던 대로……
