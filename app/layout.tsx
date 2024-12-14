@@ -1,5 +1,10 @@
+import { Wrapper } from "@yeonpm/react";
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
+import Header from "./src/component/Header";
+import Footer from "./src/component/Footer";
+import MainLayout from "./src/component/MainLayout";
+import { Suspense } from "react";
 
 const APP_NAME = "engdoit";
 const APP_DEFAULT_TITLE = "engdoit";
@@ -74,7 +79,17 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.webmanifest" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
       </head>
-      <body>{children}</body>
+      <body>
+        <div className="flex flex-col h-screen bg-gray-100 overflow-hidden">
+          <Header />
+          <Suspense fallback={<div>Loading...</div>}>
+            <MainLayout>
+              {children}
+              <Footer />
+            </MainLayout>
+          </Suspense>
+        </div>
+      </body>
     </html>
   );
 }
