@@ -13,7 +13,14 @@ const Header = (): ReactElement => {
   return (
     <header className="flex justify-center items-center bg-gray-900 text-white p-4">
       {!isHome && (
-        <Wrapper onClick={() => router.back()} mouseCss block mt={-20}>
+        <Wrapper
+          onClick={() => {
+            router.replace("/");
+          }}
+          mouseCss
+          block
+          mt={-20}
+        >
           <ArrowLeft className="w-6 absolute left-4 h-6" />
         </Wrapper>
       )}

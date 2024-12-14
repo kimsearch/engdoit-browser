@@ -13,7 +13,7 @@ export default function Result() {
     text: percentage >= 70 ? "#4caf50" : "#f44336",
     bg: percentage >= 70 ? "#c6f0c0" : "#f9d3ce",
   };
-  const percentageText = percentage >= 70 ? "GOOD ~" : "Umm...";
+  const percentageText = percentage >= 70 ? "GOOD~" : "Umm...";
 
   return (
     <Wrapper maxHeight={`calc(100vh - 100)`} h={"100%"} w="100%">
