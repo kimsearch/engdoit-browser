@@ -29,7 +29,7 @@ export default function Page() {
         <Wrapper between flex w="100%">
           <Button
             onClick={() => {
-              router.push("/word");
+              // router.push("/word");
             }}
           >
             WORD
