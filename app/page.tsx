@@ -1,95 +1,82 @@
 "use client";
 
-import PWAInstallPrompt from "./component/feature/PWAInstallPrompt";
-import { useState, useEffect } from "react";
-import wordSets from "./configs/words";
-import Header from "./component/Header";
-import Home from "./component/Home";
-import Quiz from "./component/Quiz";
-import Results from "./component/Result";
+import { OutlinedInput } from "@mui/material";
+import PWAInstallPrompt from "./src/component/feature/PWAInstallPrompt";
+import { Txt, Wrapper } from "@yeonpm/react";
+import { Mic, Search } from "lucide-react";
+import { useRouter } from "next/navigation";
 
-export type Screen = "home" | "quiz" | "results";
-export type Difficulty = -1 | 0 | 1 | 2 | 3 | 4 | 5; // 0은 홈화면과 같이 난이도가 필요없는 상태 -1은 북마크 단어!
-
-export default function WordQuiz() {
-  const [screen, setScreen] = useState<Screen>("home");
-  // const [screen, setScreen] = useState<Screen>("results");
-  const [difficulty, setDifficulty] = useState<Difficulty>(0);
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(2);
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
-  const [isBookmarked, setIsBookmarked] = useState(false);
-  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-  const [correctAnswers, setCorrectAnswers] = useState(0);
-
-  useEffect(() => {
-    if (screen === "home") {
-      setDifficulty(0);
-    }
-  }, [screen]);
-
-  useEffect(() => {
-    if (screen === "quiz" && timeLeft > 0) {
-      const timer = setTimeout(() => setTimeLeft(timeLeft - 0.1), 100);
-      return () => clearTimeout(timer);
-    } else if (screen === "quiz" && selectedAnswer === null) {
-      setTimeout(() => goToNextWord(), 1000);
-    }
-  }, [timeLeft, selectedAnswer, screen]);
-
-  const goToNextWord = () => {
-    if (currentWordIndex + 1 < wordSets[difficulty]?.length) {
-      setCurrentWordIndex((prevIndex) => prevIndex + 1);
-      setTimeLeft(2);
-      setSelectedAnswer(null);
-      setIsCorrect(null);
-    } else {
-      setScreen("results");
-    }
-  };
-
-  const handleAnswerSelect = (answer: string) => {
-    if (selectedAnswer !== null || timeLeft <= 0) return;
-    const correct = answer === wordSets[difficulty][currentWordIndex].english;
-    setSelectedAnswer(answer);
-    setIsCorrect(correct);
-    if (correct) setCorrectAnswers((prev) => prev + 1);
-    setTimeout(goToNextWord, 1000);
-  };
-
-  const startQuiz = (selectedDifficulty: Difficulty) => {
-    setScreen("quiz");
-    setDifficulty(selectedDifficulty);
-    setCurrentWordIndex(0);
-    setTimeLeft(2);
-    setSelectedAnswer(null);
-    setIsCorrect(null);
-    setCorrectAnswers(0);
-  };
+export default function Page() {
+  const router = useRouter();
 
   return (
-    <div className="flex flex-col h-screen bg-gray-100">
-      <Header difficulty={difficulty} />
-      <Home screen={screen} startQuiz={startQuiz} />
-      <Quiz
-        screen={screen}
-        currentWordIndex={currentWordIndex}
-        difficulty={difficulty}
-        timeLeft={timeLeft}
-        isBookmarked={isBookmarked}
-        selectedAnswer={selectedAnswer}
-        isCorrect={isCorrect}
-        handleAnswerSelect={handleAnswerSelect}
-        setIsBookmarked={setIsBookmarked}
-      />
-      <Results
-        screen={screen}
-        difficulty={difficulty}
-        correctAnswers={correctAnswers}
-        setScreen={setScreen}
-        startQuiz={startQuiz}
-      />
-      <PWAInstallPrompt />
-    </div>
+    <>
+      <Wrapper mt={60}>
+        <Txt fontVariant={{ fontSize: 35, fw: 800 }}>ENG DO IT</Txt>
+      </Wrapper>
+      <Wrapper mt={40}>
+        <OutlinedInput
+          placeholder="단어를 검색해주세요"
+          endAdornment={<Mic />}
+          inputProps={{ style: { paddingLeft: 12 } }}
+          size="small"
+          sx={{ backgroundColor: "white" }}
+          startAdornment={<Search />}
+          color="primary"
+        />
+      </Wrapper>
+      <Wrapper column w={210} maxHeight={370} h="100%" ac jc minHeight={200}>
+        <Wrapper between flex w="100%">
+          <Button
+            onClick={() => {
+              // router.push("/word");
+            }}
+          >
+            WORD
+          </Button>
+          <Button onClick={() => {}}>
+            BOOK
+            <br />
+            MARK
+          </Button>
+        </Wrapper>
+        <Wrapper between flex w="100%" mt={10}>
+          <Button
+            onClick={() => {
+              router.push("/quiz");
+            }}
+          >
+            QUIZ
+          </Button>
+          <Button onClick={() => {}}>GAME</Button>
+        </Wrapper>
+      </Wrapper>
+      {/* <PWAInstallPrompt /> */}
+    </>
   );
 }
+
+const Button = ({
+  children,
+  onClick,
+}: {
+  children: React.ReactNode;
+  onClick: () => void;
+}) => {
+  return (
+    <Wrapper
+      border="2px solid black"
+      white
+      boxShadow="0px 0px 10px 0px rgba(0, 0, 0, 0.1)"
+      size={[100, 60]}
+      borderRadius={"12px !important"}
+      role="button"
+      ac
+      jc
+      mouseCss
+      onClick={onClick}
+    >
+      <Txt fv={{ fs: 20, fw: 700, lh: "110%" }}>{children}</Txt>
+    </Wrapper>
+  );
+};

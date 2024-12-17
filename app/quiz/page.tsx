@@ -1,20 +1,16 @@
 "use client";
 import { ReactElement } from "react";
-import { Difficulty, Screen } from "../page";
 import { Star } from "lucide-react";
 import { FaBookmark } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
-const Home = ({
-  screen,
-  startQuiz,
-}: {
-  screen: Screen;
-  startQuiz: (selectedDifficulty: Difficulty) => void;
-}): ReactElement => {
-  return screen === "home" ? (
+const QuizIntro = (): ReactElement => {
+  const router = useRouter();
+
+  return (
     <div className="flex-1 flex flex-col items-center justify-center p-4">
       <div className="grid grid-cols-2 gap-4 w-full" style={{ maxWidth: 320 }}>
-        {([1, 2, 3, 4, 5, -1] as Difficulty[]).map((level) => (
+        {[1, 2, 3, 4, 5, -1].map((level) => (
           <StageButton
             key={level}
             label={level === -1 ? "북마크" : `난이도 ${level}`}
@@ -38,17 +34,15 @@ const Home = ({
                 </div>
               )
             }
-            onClick={() => startQuiz(level)}
+            onClick={() => router.push(`/quiz/${level}`)}
           />
         ))}
       </div>
     </div>
-  ) : (
-    <></>
   );
 };
 
-export default Home;
+export default QuizIntro;
 
 const StageButton = ({
   label,
@@ -62,7 +56,7 @@ const StageButton = ({
   <button
     className="py-3 px-6 text-center hover:bg-gray-50"
     style={{
-      height: 170,
+      height: 130,
       borderRadius: 10,
       background: "linear-gradient(-42deg, rgb(222 222 222), rgb(247 247 247))",
       boxShadow: "inset -1px -1px 4px rgba(0,0,0,0.25)",
